@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/partials/card.css" />
+  </head>
+
+  <body>
+    <%- include('./partials/header.ejs') %>
+
+    <main class="home-container">
+      <section class="slideshow" aria-roledescription="carousel" aria-label="Promociones">
+        <div class="slideshow-track">
+          <article class="slideshow-slide is-active">
+            <img
+              src="/images/banner/slide-1.jpg"
+              alt="Cervezas servidas en vaso"
+            />
+          </article>
+          <article class="slideshow-slide">
+            <img
+              src="/images/banner/slide-2.jpg"
+              alt="Barriles y vasos de cerveza"
+            />
+          </article>
+          <article class="slideshow-slide">
+            <img
+              src="/images/banner/slide-3.jpg"
+              alt="Botellas de cerveza artesanal"
+            />
+          </article>
+        </div>
+
+        <div class="slideshow-copy">
+          <p class="page-kicker">E-Beer</p>
+          <h1>Cervezas elegidas para disfrutar mejor</h1>
+          <p>Nacionales, importadas, artesanales e industriales.</p>
+        </div>
+
+        <button class="slideshow-btn slideshow-btn-prev" type="button" aria-label="Imagen anterior">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="slideshow-btn slideshow-btn-next" type="button" aria-label="Imagen siguiente">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <div class="slideshow-dots" role="tablist" aria-label="Elegir imagen"></div>
+      </section>
+
+      <section class="featured-products">
+        <div class="featured-products-title">
+          <p class="page-kicker">Selección</p>
+          <h2>Catálogo de productos</h2>
+          <p>Una curaduría de cervezas de excelente calidad, listas para tu mesa.</p>
+        </div>
+
+        <div class="cards-container">
+          <% products.forEach(product => { %> <%- include('./partials/card.ejs',
+          {product}) %> <% }) %>
+        </div>
+      </section>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+    <script src="/js/home/slideshow.js" defer></script>
+  </body>
+</html>

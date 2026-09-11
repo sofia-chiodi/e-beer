@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/cart.css" />
+  </head>
+
+  <body>
+    <%- include('./partials/header.ejs') %>
+
+    <% if (!cart.items.length) { %>
+    <main class="cart-container">
+      <section class="emptyCart">
+        <% if (orderPlaced) { %>
+        <h2>¡Gracias por tu compra!</h2>
+        <article class="emptyCartMessage">
+          <p>Orden procesada con éxito</p>
+        </article>
+        <% } else { %>
+        <h2>Tu carrito está vacío</h2>
+        <article class="emptyCartMessage">
+          <p>No hay ningún producto en tu carrito aún.</p>
+        </article>
+        <% } %>
+      </section>
+
+      <section class="backToHome">
+        <a class="btn-yellow" href="/products">Seguir comprando</a>
+      </section>
+    </main>
+    <% } else { %>
+    <main class="mainCart">
+      <section class="productsContainer">
+        <section class="productsList">
+          <h2>Productos</h2>
+
+          <% cart.items.forEach(item => { %>
+          <article class="productCard">
+            <div class="productImageTitle">
+              <img
+                src="/images/products/<%= item.image %>"
+                alt="<%= item.name %>"
+              />
+              <div class="productDescription">
+                <h3><%= item.name %></h3>
+              </div>
+            </div>
+            <div class="productManage">
+              <div class="productQuantity">
+                <form action="/products/cart/update" method="POST">
+                  <input type="hidden" name="id" value="<%= item.id %>" />
+                  <input
+                    type="hidden"
+                    name="quantity"
+                    value="<%= item.quantity - 1 %>"
+                  />
+                  <button type="submit" class="takeMore">-</button>
+                </form>
+                <p class="quantityNumber"><%= item.quantity %></p>
+                <form action="/products/cart/update" method="POST">
+                  <input type="hidden" name="id" value="<%= item.id %>" />
+                  <input
+                    type="hidden"
+                    name="quantity"
+                    value="<%= item.quantity + 1 %>"
+                  />
+                  <button type="submit" class="addMore">+</button>
+                </form>
+              </div>
+              <div class="productPrice">
+                <p class="value"><%= item.lineTotalLabel %></p>
+              </div>
+              <form action="/products/cart/remove" method="POST">
+                <input type="hidden" name="id" value="<%= item.id %>" />
+                <button type="submit" class="productDelete">Eliminar</button>
+              </form>
+            </div>
+          </article>
+          <% }) %>
+        </section>
+
+        <div class="purchase">
+          <h2>Su orden</h2>
+          <article class="summary">
+            <div class="productsValue">
+              <p>Producto/s</p>
+              <p><%= cart.subtotalLabel %></p>
+            </div>
+            <div class="deliveryValue">
+              <p>Envío</p>
+              <p><%= cart.shippingLabel %></p>
+            </div>
+            <div class="totalValue">
+              <p class="total">TOTAL:</p>
+              <p class="totalNumber"><%= cart.totalLabel %></p>
+            </div>
+
+            <form action="/products/cart/checkout" method="POST">
+              <button type="submit" class="btn-yellow">Comprar</button>
+            </form>
+          </article>
+        </div>
+      </section>
+    </main>
+    <% } %>
+
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

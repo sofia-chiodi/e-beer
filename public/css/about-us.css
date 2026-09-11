@@ -1,0 +1,38 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.about-us {
+  width: min(720px, 88%);
+  text-align: center;
+  margin: 72px 0 96px;
+  padding: 48px 28px;
+  background: var(--cream);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.description {
+  margin: 28px auto 0;
+  line-height: 1.8;
+  color: var(--dark-grey);
+  max-width: 58ch;
+}
+
+.description p {
+  margin-top: 18px;
+}
+
+.logo {
+  margin: 36px auto 0;
+  width: 120px;
+}
+
+@media (min-width: 1024px) {
+  .about-us {
+    padding: 64px 56px;
+  }
+}

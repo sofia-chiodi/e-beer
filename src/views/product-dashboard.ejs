@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/products-dashboard.css" />
+  </head>
+
+  <body>
+    <%- include('./partials/header.ejs') %>
+
+    <main>
+      <h2 class="title">Administración de productos</h2>
+
+      <a class="btn-add" href="/products/create">
+        Agregar
+        <i class="fa-solid fa-plus"></i>
+      </a>
+
+      <section class="table-container">
+        <article>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% products.forEach(product => { %>
+                <%- include('partials/product-table-item', {product}) %>
+              <% }) %>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="pagination-container">
+          <form class="rows-per-page-container" method="GET" action="/products/dashboard">
+            <label for="rowsPerPage">Filas por página:</label>
+            <input type="hidden" name="page" value="1" />
+            <select name="limit" id="rowsPerPage" onchange="this.form.submit()">
+              <option value="5" <%= pagination.limit === 5 ? 'selected' : '' %>>5</option>
+              <option value="10" <%= pagination.limit === 10 ? 'selected' : '' %>>10</option>
+              <option value="15" <%= pagination.limit === 15 ? 'selected' : '' %>>15</option>
+            </select>
+          </form>
+
+          <div class="pagination-counter-container">
+            <span><%= pagination.from %>-<%= pagination.to %></span>
+            de
+            <span><%= pagination.count %></span>
+          </div>
+
+          <div class="pagination-btns-container">
+            <% if (pagination.hasPrev) { %>
+            <a
+              href="/products/dashboard?page=<%= pagination.page - 1 %>&limit=<%= pagination.limit %>"
+              aria-label="Página anterior"
+            >
+              <i class="fa-solid fa-arrow-left"></i>
+            </a>
+            <% } else { %>
+            <span class="pagination-disabled" aria-disabled="true">
+              <i class="fa-solid fa-arrow-left"></i>
+            </span>
+            <% } %>
+
+            <% if (pagination.hasNext) { %>
+            <a
+              href="/products/dashboard?page=<%= pagination.page + 1 %>&limit=<%= pagination.limit %>"
+              aria-label="Página siguiente"
+            >
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <% } else { %>
+            <span class="pagination-disabled" aria-disabled="true">
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+            <% } %>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/product-detail.css" />
+  </head>
+
+  <body>
+    <%- include('./partials/header.ejs') %>
+
+    <main class="product-container">
+      <section class="card-container">
+        <article class="img-container">
+          <img
+            src="/images/products/<%= product.image %>"
+            alt="Imágen de producto <%= product.name %>"
+          />
+        </article>
+        <article class="card-description-container">
+          <div class="card-title">
+            <h2><%= product.name %></h2>
+            <span>$<%= product.price %></span>
+          </div>
+          <div class="card-description">
+            <p><%= product.description %></p>
+          </div>
+
+          <form
+            class="add-to-cart-form"
+            action="/products/cart/add"
+            method="POST"
+          >
+            <input type="hidden" name="id" value="<%= product.id %>" />
+            <input
+              type="hidden"
+              name="quantity"
+              id="cartQuantity"
+              value="1"
+            />
+
+            <div class="btns-container">
+              <div class="count-btn">
+                <button type="button" id="qtyMinus">-</button>
+                <span id="qtyValue">1</span>
+                <button type="button" id="qtyPlus">+</button>
+              </div>
+
+              <button class="btn-yellow" type="submit">Añadir al carrito</button>
+            </div>
+          </form>
+        </article>
+      </section>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+    <script src="/js/products/productDetail.js" defer></script>
+  </body>
+</html>

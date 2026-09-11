@@ -1,0 +1,113 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+}
+
+.login-container {
+  width: min(460px, 92%);
+  margin: 56px auto 88px;
+}
+
+.form-title {
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.form-title h1 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 42px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.form-title p:last-child {
+  margin-top: 8px;
+  color: var(--dark-grey);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.form-container {
+  background: var(--cream);
+  padding: 28px 22px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.login-field label {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.form-container .inputs {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 13px 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-container .inputs:focus {
+  outline: none;
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 4px rgba(255, 180, 50, 0.22);
+}
+
+.form-container .btn-yellow {
+  margin-top: 4px;
+}
+
+.links-container {
+  text-align: center;
+}
+
+.links-container a {
+  color: var(--dark-grey);
+  font-size: 14px;
+}
+
+.links-container a:hover span {
+  text-decoration: underline;
+}
+
+.links-container span {
+  color: var(--yellow-hover);
+  font-weight: 700;
+}
+
+.flash-errors {
+  color: var(--red);
+  font-size: 13px;
+}
+
+.remember-me {
+  color: var(--black);
+  font-size: 14px;
+}
+
+.remember-me label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .form-container {
+    padding: 36px;
+  }
+}

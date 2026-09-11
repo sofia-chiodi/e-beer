@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/my-profile.css" />
+  </head>
+
+  <body>
+    <%- include('./partials/header.ejs') %>
+
+    <main class="profile-page">
+      <section class="info-profile-container">
+        <article class="profile-picture">
+          <img
+            src="/images/users/<%= user.profile_picture || 'default-image.jpg' %>"
+            alt="Foto de perfil de <%= user.first_name %>"
+          />
+        </article>
+      </section>
+
+      <section class="bottomProfile">
+        <article class="title">
+          <p class="page-kicker">Cuenta</p>
+          <h2>Mi perfil</h2>
+        </article>
+
+        <form action="/" method="post">
+          <article class="input-container">
+            <label for="first_name">Nombre</label>
+            <input
+              name="first_name"
+              type="text"
+              class="inputs"
+              value="<%= user.first_name %>"
+              readonly
+            />
+          </article>
+          <article class="input-container">
+            <label for="last_name">Apellido</label>
+            <input
+              name="last_name"
+              type="text"
+              class="inputs"
+              value="<%= user.last_name %>"
+              readonly
+            />
+          </article>
+          <article class="input-container">
+            <label for="email">Email</label>
+            <input
+              name="email"
+              type="email"
+              class="inputs"
+              value="<%= user.email %>"
+              readonly
+            />
+          </article>
+          <article class="input-container">
+            <label for="contact_number">Teléfono</label>
+            <input
+              name="contact_number"
+              type="tel"
+              class="inputs"
+              value="<%= user.contact_number %>"
+              readonly
+            />
+          </article>
+          <article class="input-container">
+            <label for="address">Domicilio de entrega</label>
+            <input
+              name="address"
+              class="inputs"
+              type="text"
+              value="<%= user.address %>"
+              readonly
+            />
+          </article>
+          <article class="input-container">
+            <label for="birth_date">Fecha de nacimiento</label>
+            <input
+              class="inputs"
+              type="date"
+              name="birth_date"
+              value="<%= user.birth_date %>"
+              min="1900-01-01"
+              max="2005-08-19"
+              readonly
+            />
+          </article>
+
+          <% if (locals.isLogged && locals.userLogged.role_id == 1) { %>
+          <article class="input-container">
+            <label for="role_id">Tipo de usuario</label>
+            <input
+              name="role_id"
+              class="inputs"
+              type="text"
+              value="Administrador"
+              readonly
+            />
+          </article>
+          <% } %>
+        </form>
+      </section>
+
+      <article class="other-container">
+        <div class="title">
+          <p class="page-kicker">Acciones</p>
+          <h2>Opciones</h2>
+        </div>
+        <div class="buttons-container">
+          <a href="/users/my-profile/edit/" class="btn-yellow">Actualizar datos personales</a>
+          <a href="/users/my-password/edit/" class="btn-yellow">Modificar contraseña</a>
+          <a href="/products/cart" class="btn-yellow btn-secondary">Historial de compras</a>
+          <a href="/users/my-profile" class="btn-yellow btn-secondary">Mis tarjetas</a>
+          <a href="/users/logout" class="btn-yellow btn-logout">Cerrar sesión</a>
+        </div>
+      </article>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

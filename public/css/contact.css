@@ -1,0 +1,151 @@
+.contact-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.contact {
+  width: min(980px, 92%);
+  margin: 56px auto 88px;
+  display: grid;
+  gap: 32px;
+}
+
+.contact-copy {
+  text-align: left;
+}
+
+.contact-intro {
+  margin-top: 12px;
+  max-width: 42ch;
+  color: var(--dark-grey);
+}
+
+.contact-details {
+  display: grid;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.contact-details a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: var(--black);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-details a:hover {
+  border-color: var(--yellow);
+  transform: translateY(-1px);
+}
+
+.contact-details strong {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dark-grey);
+  margin-bottom: 2px;
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: var(--black);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-form {
+  background: var(--cream);
+  width: 100%;
+  padding: 28px 22px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.contact-field label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.contact-form .inputs {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 13px 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form .inputs:focus {
+  outline: none;
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 4px rgba(255, 180, 50, 0.22);
+}
+
+.contact-form textarea.inputs {
+  min-height: 140px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.contact-form .btn-yellow {
+  margin-top: 4px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .contact-form {
+    padding: 36px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-form .btn-yellow {
+    width: auto;
+    align-self: flex-start;
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact {
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: start;
+    gap: 48px;
+    margin-top: 80px;
+  }
+
+  .contact-copy {
+    padding-top: 12px;
+  }
+}

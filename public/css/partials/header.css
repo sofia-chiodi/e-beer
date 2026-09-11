@@ -1,0 +1,212 @@
+header {
+  background-color: var(--black);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.22);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 84px;
+  position: relative;
+}
+
+.nav-icon {
+  width: 78px;
+}
+.nav-icon img {
+  width: 78px;
+}
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+}
+.nav-menu.active {
+  display: flex;
+}
+.nav-container ul {
+  display: none;
+  position: absolute;
+  top: 84px;
+  left: 0;
+  width: 100%;
+  margin-right: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--black);
+  z-index: 20;
+}
+.nav-container ul:nth-child(2) {
+  top: 420px;
+}
+.nav-container li {
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+}
+.nav-container a {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+.nav-user-buttons li:last-child {
+  border-bottom: none;
+}
+.nav-user-buttons i {
+  display: none;
+}
+.burguer-menu {
+  color: white;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.center {
+  text-align: center;
+}
+
+.form-div {
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.black-bg {
+  background-color: black !important;
+}
+
+.rounded-border {
+  border-radius: 10px;
+}
+
+#btn-restablecer {
+  background-color: #e95501;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .form-div {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .restablecer {
+    margin-top: -10px !important;
+    border: 1px solid;
+    margin-bottom: 20px !important;
+  }
+
+  .guardar {
+    margin-bottom: 0px;
+    border: 1px solid;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .nav-container {
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-container {
+    width: 100%;
+    max-width: var(--container-lg);
+    margin: 0 auto;
+    padding: 0 12px;
+    height: 88px;
+  }
+  .header-container img {
+    width: 78px;
+    height: auto;
+    margin-right: 24px;
+    transition: transform 0.2s ease;
+  }
+  .header-container img:hover {
+    transform: scale(1.04);
+  }
+
+  .nav-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+  .nav-container ul {
+    display: flex;
+    position: unset;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 0;
+    background: transparent;
+  }
+  .nav-container ul:nth-child(1) {
+    padding-top: 0;
+    height: 100%;
+    margin-left: 16px;
+    gap: 4px;
+  }
+  .nav-container ul:nth-child(2) {
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  .nav-container li {
+    padding: 0 14px;
+    width: fit-content;
+    border: none;
+  }
+  .nav-container ul:first-child a {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .nav-container ul:first-child a:hover {
+    color: var(--yellow);
+    border-bottom-color: var(--yellow);
+  }
+  .nav-user-buttons i {
+    display: inherit;
+  }
+  .nav-user-buttons li {
+    border: 1px solid rgba(255, 255, 255, 0.28) !important;
+    border-radius: 999px;
+    padding: 6px 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+  .nav-user-buttons li:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: var(--yellow) !important;
+  }
+  .nav-user-buttons a {
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    width: auto;
+    padding: 0 12px;
+    border-bottom: none;
+    text-decoration: none;
+  }
+  .nav-user-buttons a:hover {
+    color: var(--yellow);
+    border-bottom: none;
+    text-decoration: none;
+  }
+  .nav-user-buttons span {
+    padding-left: 8px;
+  }
+  .burguer-menu {
+    display: none;
+  }
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/contact.css" />
+  </head>
+
+  <body>
+    <%- include('./partials/header.ejs') %>
+    <main class="contact-page">
+      <section class="contact">
+        <div class="contact-copy">
+          <p class="page-kicker">Escribinos</p>
+          <h2 class="title">Contactanos</h2>
+          <p class="contact-intro">
+            ¿Tenés una consulta sobre un pedido o nuestras cervezas? Dejanos un
+            mensaje y te respondemos a la brevedad.
+          </p>
+
+          <ul class="contact-details">
+            <li>
+              <a href="mailto:contacto@e-beer.com">
+                <span class="contact-icon"><i class="fa-solid fa-envelope"></i></span>
+                <span>
+                  <strong>Email</strong>
+                  contacto@e-beer.com
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="/contact">
+                <span class="contact-icon"><i class="fa-solid fa-phone"></i></span>
+                <span>
+                  <strong>Teléfono</strong>
+                  +54 1234-1234
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <form class="contact-form" action="/home" method="get">
+          <div class="contact-field">
+            <label for="nombre">Nombre completo</label>
+            <input
+              class="inputs"
+              type="text"
+              name="nombre"
+              id="nombre"
+              placeholder="María Pérez"
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-field">
+              <label for="email">E-mail</label>
+              <input
+                class="inputs"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="tunombre@email.com"
+                autocomplete="email"
+              />
+            </div>
+
+            <div class="contact-field">
+              <label for="telefono">Teléfono</label>
+              <input
+                class="inputs"
+                type="tel"
+                name="telefono"
+                id="telefono"
+                placeholder="+54 11 1234-5678"
+                autocomplete="tel"
+              />
+            </div>
+          </div>
+
+          <div class="contact-field">
+            <label for="comentarios">Mensaje</label>
+            <textarea
+              class="inputs"
+              name="comentarios"
+              id="comentarios"
+              placeholder="Contanos en qué podemos ayudarte"
+              rows="5"
+            ></textarea>
+          </div>
+
+          <button class="btn-yellow" type="submit">Enviar mensaje</button>
+        </form>
+      </section>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

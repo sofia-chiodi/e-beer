@@ -1,0 +1,16 @@
+<article class="card">
+  <div class="card-image">
+    <a href="/products/<%= product.id %>">
+      <img src="/images/products/<%= product.image %>" alt="<%= product.name %>" />
+    </a>
+  </div>
+  <div class="card-description">
+    <h3><%= product.name %></h3>
+    <p>$ <%= product.price %></p>
+    <form action="/products/cart/add" method="POST">
+      <input type="hidden" name="id" value="<%= product.id %>" />
+      <input type="hidden" name="quantity" value="1" />
+      <button type="submit">Añadir al carrito</button>
+    </form>
+  </div>
+</article>

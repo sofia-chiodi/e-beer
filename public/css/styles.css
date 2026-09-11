@@ -1,0 +1,94 @@
+:root {
+  --yellow: #ffb432;
+  --yellow-hover: #f0a21f;
+  --black: #171614;
+  --green: #2f7d32;
+  --red: #b70d0d;
+  --bg: #f6f1e8;
+  --cream: #fffaf2;
+  --light-grey: #f6f1e8;
+  --dark-grey: rgba(23, 22, 20, 0.72);
+  --line: rgba(23, 22, 20, 0.1);
+  --shadow: 0 10px 30px rgba(23, 22, 20, 0.08);
+  --shadow-hover: 0 16px 36px rgba(23, 22, 20, 0.14);
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Manrope", sans-serif;
+  --text-sm: 14px;
+  --text-md: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 32px;
+  --container-lg: 1170px;
+  --radius: 12px;
+}
+
+.page-kicker {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--yellow-hover);
+  margin-bottom: 10px;
+}
+
+.page-title,
+.featured-products-title h2,
+.pl-products-title h2,
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.btn-yellow {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 999px;
+  padding: 12px 22px;
+  width: 100%;
+  background-color: var(--yellow);
+  color: var(--black);
+  cursor: pointer;
+  font-weight: 700;
+  text-align: center;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-yellow a {
+  color: var(--black);
+}
+.btn-yellow:hover {
+  background-color: var(--yellow-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+.inputs {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 16px;
+  width: 100%;
+  background-color: #fff;
+}
+
+.searchbar form {
+  position: relative;
+}
+.searchbar input {
+  width: 100%;
+  padding: 13px 46px 13px 18px;
+  border: 1px solid var(--line);
+  box-shadow: none;
+  border-radius: 999px;
+  background-color: #fff;
+}
+.searchbar button {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: unset;
+  cursor: pointer;
+  color: var(--dark-grey);
+}

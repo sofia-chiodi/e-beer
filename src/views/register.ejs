@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/register.css" />
+    <script src="/js/users/register.js" defer></script>
+  </head>
+
+  <body>
+    <%- include('./partials/header.ejs') %>
+
+    <main class="register-page">
+      <section class="register-container">
+        <div class="register-title">
+          <p class="page-kicker">Tu cuenta</p>
+          <h1>Crear cuenta</h1>
+          <p>Completá tus datos para registrarte en E-Beer.</p>
+        </div>
+
+        <article class="form-container">
+          <form
+            id="form"
+            action="/users/register"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div class="register-grid">
+              <div class="register-field">
+                <label for="first_name">Nombre</label>
+                <input
+                  class="inputs"
+                  type="text"
+                  name="first_name"
+                  id="first_name"
+                  placeholder="María"
+                  autocomplete="given-name"
+                  value="<%= oldData ? oldData.first_name : "" %>"
+                />
+                <div id="first_nameError" class="flash-errors"></div>
+                <% if (locals.errors && errors.first_name) { %>
+                <div class="flash-errors"><%= errors.first_name.msg %></div>
+                <% } %>
+              </div>
+
+              <div class="register-field">
+                <label for="last_name">Apellido</label>
+                <input
+                  class="inputs"
+                  type="text"
+                  name="last_name"
+                  id="last_name"
+                  placeholder="Pérez"
+                  autocomplete="family-name"
+                  value="<%= oldData ? oldData.last_name : "" %>"
+                />
+                <div id="last_nameError" class="flash-errors"></div>
+                <% if (locals.errors && errors.last_name) { %>
+                <div class="flash-errors"><%= errors.last_name.msg %></div>
+                <% } %>
+              </div>
+            </div>
+
+            <div class="register-field">
+              <label for="email">Correo electrónico</label>
+              <input
+                class="inputs"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="tunombre@email.com"
+                autocomplete="email"
+                value="<%= oldData ? oldData.email: "" %>"
+              />
+              <div id="emailError" class="flash-errors"></div>
+              <% if (locals.errors && errors.email) { %>
+              <div class="flash-errors"><%= errors.email.msg %></div>
+              <% } %>
+            </div>
+
+            <div class="register-field">
+              <label for="password">Contraseña</label>
+              <input
+                class="inputs"
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Mínimo 8 caracteres"
+                autocomplete="new-password"
+              />
+              <div id="passwordError" class="flash-errors"></div>
+              <% if (locals.errors && errors.password) { %>
+              <div class="flash-errors"><%= errors.password.msg %></div>
+              <% } %>
+            </div>
+
+            <div class="register-grid">
+              <div class="register-field">
+                <label for="contact_number">Teléfono</label>
+                <input
+                  class="inputs"
+                  type="tel"
+                  name="contact_number"
+                  id="contact_number"
+                  placeholder="12345678"
+                  autocomplete="tel"
+                  value="<%= oldData ? oldData.contact_number : "" %>"
+                />
+                <div id="contact_numberError" class="flash-errors"></div>
+                <% if (locals.errors && errors.contact_number) { %>
+                <div class="flash-errors"><%= errors.contact_number.msg %></div>
+                <% } %>
+              </div>
+
+              <div class="register-field">
+                <label for="birth_date">Fecha de nacimiento</label>
+                <input
+                  class="inputs"
+                  type="date"
+                  name="birth_date"
+                  id="birth_date"
+                  value="<%= oldData ? oldData.birth_date : "" %>"
+                />
+                <div id="birth_dateError" class="flash-errors"></div>
+                <% if (locals.errors && errors.birth_date) { %>
+                <div class="flash-errors"><%= errors.birth_date.msg %></div>
+                <% } %>
+              </div>
+            </div>
+
+            <div class="register-field">
+              <label for="address">Domicilio</label>
+              <input
+                class="inputs"
+                type="text"
+                name="address"
+                id="address"
+                placeholder="Calle, número y ciudad"
+                autocomplete="street-address"
+                value="<%= oldData ? oldData.address : "" %>"
+              />
+              <div id="addressError" class="flash-errors"></div>
+              <% if (locals.errors && errors.address) { %>
+              <div class="flash-errors"><%= errors.address.msg %></div>
+              <% } %>
+            </div>
+
+            <div class="register-field">
+              <label for="profile_picture">Foto de perfil</label>
+              <input
+                class="inputs picture-data"
+                type="file"
+                name="profile_picture"
+                id="profile_picture"
+                accept=".jpg,.jpeg,.png,.gif"
+              />
+              <div id="profile_pictureError" class="flash-errors"></div>
+              <% if (locals.errors && errors.profile_picture) { %>
+              <div class="flash-errors"><%= errors.profile_picture.msg %></div>
+              <% } %>
+            </div>
+
+            <button type="submit" class="btn-yellow">Crear cuenta</button>
+
+            <section class="links-container">
+              <a href="/users/login"
+                >¿Ya tenés cuenta? <span>Ingresá</span></a
+              >
+            </section>
+          </form>
+        </article>
+      </section>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

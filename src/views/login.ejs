@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/login.css" />
+    <script src="/js/users/login.js" defer></script>
+  </head>
+  <body>
+    <%- include('./partials/header.ejs') %>
+
+    <main class="login-page">
+      <section class="login-container">
+        <div class="form-title">
+          <p class="page-kicker">Tu cuenta</p>
+          <h1>Iniciar sesión</h1>
+          <p>Entrá para ver tu perfil y seguir tu compra.</p>
+        </div>
+
+        <article class="form-container">
+          <form action="/users/login" method="POST">
+            <div class="login-field">
+              <label for="email">Correo electrónico</label>
+              <input
+                class="inputs"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="tunombre@email.com"
+                autocomplete="email"
+                value="<%= locals.oldData ? oldData.email : "" %>"
+              />
+              <div id="emailError" class="flash-errors"></div>
+              <% if (locals.errors && errors.email) { %>
+              <p class="flash-errors"><%= errors.email.msg %></p>
+              <% } %>
+            </div>
+
+            <div class="login-field">
+              <label for="password">Contraseña</label>
+              <input
+                class="inputs"
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Ingresá tu contraseña"
+                autocomplete="current-password"
+              />
+              <div id="passwordError" class="flash-errors"></div>
+              <% if (locals.errors && errors.password) { %>
+              <p class="flash-errors"><%= errors.password.msg %></p>
+              <% } %>
+            </div>
+
+            <div class="remember-me">
+              <label for="rememberMe">
+                <input type="checkbox" name="rememberMe" id="rememberMe" />
+                Recordarme
+              </label>
+            </div>
+
+            <button class="btn-yellow" type="submit">Iniciar sesión</button>
+
+            <section class="links-container">
+              <a href="/users/register"
+                >¿No tenés cuenta? <span>Crear cuenta</span></a
+              >
+            </section>
+          </form>
+        </article>
+      </section>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

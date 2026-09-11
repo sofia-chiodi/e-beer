@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/form-styles.css" />
+  </head>
+
+  <body>
+    <%- include('./partials/header.ejs') %>
+    <main>
+      <section class="container">
+        <form
+          id="form"
+          action="/products/<%= product.id %>/delete?_method=delete"
+          method="POST"
+        >
+          <h2 class="title">ELIMINAR PRODUCTO</h2>
+
+          <label for="id">ID</label>
+            <input
+              name="id"
+              class="inputs"
+              type="text"
+              value="<%= product.id %>"
+              readonly
+            />
+
+          <label for="name">NOMBRE DEL PRODUCTO</label>
+          <input
+            class="inputs"
+            type="text"
+            name="name"
+            placeholder="Nombre del producto"
+            value="<%= product.name %>"
+            readonly
+          />
+
+          <label for="price">PRECIO</label>
+          <input
+            class="inputs"
+            type="number"
+            name="price"
+            placeholder="Precio"
+            value="<%= product.price %>"
+            readonly
+          />
+
+          <label for="description">DESCRIPCIÓN</label>
+          <input
+            class="inputs"
+            type="text"
+            name="description"
+            placeholder="Descripción"
+            value="<%= product.description %>"
+            readonly
+          />
+
+          <label for="brand_id">ID DE MARCA</label>
+          <input
+            class="inputs"
+            type="text"
+            name="brand_id"
+            placeholder="ID de la marca"
+            value="<%= product.brand_id %>"
+            readonly
+          />       
+
+          <label for="category_id">ID DE CATEGORÍA</label>
+          <input
+            class="inputs"
+            type="text"
+            name="category"
+            placeholder="ID de la categoría"
+            value="<%= product.category_id %>"
+            readonly
+          />
+
+          <label for="size_id">ID DE TAMAÑO</label>
+          <input
+            class="inputs"
+            type="number"
+            name="size_id"
+            placeholder="ID de la medida"
+            value="<%= product.size_id %>"
+            readonly
+          />
+          <div class="buttons-container">
+            <button class="delete-button" type="submit">Borrar</button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>
