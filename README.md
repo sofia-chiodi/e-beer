@@ -89,6 +89,36 @@ Stop the app with `Ctrl+C`. To stop the Docker database:
 docker stop ebeer-mysql
 ```
 
+### Deploy on Render
+
+Render can host the Node app. It does **not** include MySQL, so create a MySQL database first (Aiven, Railway, or similar) and copy the host, user, password, and database name.
+
+1. Push this repo to GitHub.
+2. In [Render](https://dashboard.render.com), create a **Web Service** from that repo.
+3. Use:
+   - **Build command:** `npm install`
+   - **Start command:** `npm start`
+4. Add these environment variables:
+
+| Key | Value |
+| --- | --- |
+| `NODE_ENV` | `production` |
+| `SESSION_SECRET` | a long random string |
+| `DB_HOST` | from your MySQL host |
+| `DB_PORT` | `3306` (or the port they give you) |
+| `DB_USER` | from your MySQL host |
+| `DB_PASSWORD` | from your MySQL host |
+| `DB_NAME` | from your MySQL host |
+| `DB_SSL` | `true` |
+
+5. After the first deploy, open the service **Shell** and run once:
+
+```bash
+npm run db:setup
+```
+
+That creates the tables and loads the seed products. Uploaded images will not persist on Render’s free disk.
+
 ---
 
 ## Español
@@ -173,3 +203,33 @@ Para frenar la app usá `Ctrl+C`. Para frenar la base en Docker:
 ```bash
 docker stop ebeer-mysql
 ```
+
+### Subirlo a Render
+
+Render puede hostear la app de Node. **No incluye MySQL**, así que primero creá una base MySQL (Aiven, Railway u otro) y copiá host, usuario, contraseña y nombre de la base.
+
+1. Subí el repo a GitHub.
+2. En [Render](https://dashboard.render.com) creá un **Web Service** desde ese repo.
+3. Usá:
+   - **Build command:** `npm install`
+   - **Start command:** `npm start`
+4. Agregá estas variables de entorno:
+
+| Key | Value |
+| --- | --- |
+| `NODE_ENV` | `production` |
+| `SESSION_SECRET` | un string largo y aleatorio |
+| `DB_HOST` | de tu host de MySQL |
+| `DB_PORT` | `3306` (o el puerto que te den) |
+| `DB_USER` | de tu host de MySQL |
+| `DB_PASSWORD` | de tu host de MySQL |
+| `DB_NAME` | de tu host de MySQL |
+| `DB_SSL` | `true` |
+
+5. Después del primer deploy, abrí el **Shell** del servicio y ejecutá una vez:
+
+```bash
+npm run db:setup
+```
+
+Eso crea las tablas y carga los productos. Las imágenes subidas no se guardan de forma permanente en el disco gratis de Render.

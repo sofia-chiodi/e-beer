@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon -e js src/app.js"
+    "dev": "nodemon -e js src/app.js",
+    "db:setup": "node scripts/setup-db.js"
+  },
+  "engines": {
+    "node": ">=18"
   },
   "keywords": [],
   "author": "",
