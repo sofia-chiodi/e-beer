@@ -3,11 +3,12 @@ const userServices = require('../services/userServices');
 module.exports = async (req, res, next) => {
   res.locals.isLogged = false;
 
-  const emailInCookie = req.cookies.email || '';
-  const userFromCookie = await userServices.getUserByEmail(emailInCookie);
-
-  if (userFromCookie) {
-    req.session.userLogged = userFromCookie;
+  const emailInCookie = req.cookies.email;
+  if (emailInCookie) {
+    const userFromCookie = await userServices.getUserByEmail(emailInCookie);
+    if (userFromCookie) {
+      req.session.userLogged = userFromCookie;
+    }
   }
 
   if (req.session && req.session.userLogged) {

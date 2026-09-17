@@ -105,19 +105,13 @@ Render can host the Node app. It does **not** include MySQL, so create a MySQL d
 | `NODE_ENV` | `production` |
 | `SESSION_SECRET` | a long random string |
 | `DB_HOST` | from your MySQL host |
-| `DB_PORT` | `3306` (or the port they give you) |
+| `DB_PORT` | Aiven’s port (not `3306`) |
 | `DB_USER` | from your MySQL host |
 | `DB_PASSWORD` | from your MySQL host |
 | `DB_NAME` | from your MySQL host |
 | `DB_SSL` | `true` |
 
-5. After the first deploy, open the service **Shell** and run once:
-
-```bash
-npm run db:setup
-```
-
-That creates the tables and loads the seed products. Uploaded images will not persist on Render’s free disk.
+`npm start` creates the tables and seed products on first boot if they are missing. Uploaded images will not persist on Render’s free disk.
 
 ---
 
@@ -220,16 +214,10 @@ Render puede hostear la app de Node. **No incluye MySQL**, así que primero cre�
 | `NODE_ENV` | `production` |
 | `SESSION_SECRET` | un string largo y aleatorio |
 | `DB_HOST` | de tu host de MySQL |
-| `DB_PORT` | `3306` (o el puerto que te den) |
+| `DB_PORT` | el puerto de Aiven (no es `3306`) |
 | `DB_USER` | de tu host de MySQL |
 | `DB_PASSWORD` | de tu host de MySQL |
 | `DB_NAME` | de tu host de MySQL |
 | `DB_SSL` | `true` |
 
-5. Después del primer deploy, abrí el **Shell** del servicio y ejecutá una vez:
-
-```bash
-npm run db:setup
-```
-
-Eso crea las tablas y carga los productos. Las imágenes subidas no se guardan de forma permanente en el disco gratis de Render.
+`npm start` crea las tablas y carga los productos en el primer arranque si todavía no existen. Las imágenes subidas no se guardan de forma permanente en el disco gratis de Render.
